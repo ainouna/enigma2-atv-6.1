@@ -1,3 +1,4 @@
+# Embedded file name: /usr/lib/enigma2/python/Components/Converter/SmartInfo.py
 from enigma import iServiceInformation
 from Components.Converter.Converter import Converter
 from Components.Element import cached
@@ -76,7 +77,8 @@ class SmartInfo(Poll, Converter, object):
                         Ret_Text = Ret_Text + 'Frequency: ' + frequency
                 Ret_Text = Ret_Text + ' ' + satName
             return Ret_Text
-        return 'n/a'
+        else:
+            return 'n/a'
 
     text = property(getText)
 
@@ -98,6 +100,8 @@ class SmartInfo(Poll, Converter, object):
                     if position.startswith('.'):
                         position = '0%s' % position
                     self.satNames[position] = name.encode('utf-8')
+
+        return
 
     def getOrbitalPosition(self, info):
         transponderData = info.getInfoObject(iServiceInformation.sTransponderData)

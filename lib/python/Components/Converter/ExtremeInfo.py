@@ -1,3 +1,4 @@
+# Embedded file name: /usr/lib/enigma2/python/Components/Converter/ExtremeInfo.py
 from Components.Converter.Converter import Converter
 from Components.Element import cached
 from ServiceReference import ServiceReference
@@ -51,7 +52,7 @@ class ExtremeInfo(Poll, Converter, object):
     WICARDD = 37
     BULCRYPT = 38
     BULECM = 39
-    
+
     def __init__(self, type):
         Poll.__init__(self)
         Converter.__init__(self, type)
@@ -782,7 +783,7 @@ class ExtremeInfo(Poll, Converter, object):
                                 return True
 
         return False
-    
+
     def getIrdCrypt(self):
         service = self.source.service
         if service:
@@ -990,8 +991,8 @@ class ExtremeInfo(Poll, Converter, object):
                             if caid == '55':
                                 return True
 
-        return False 
-    
+        return False
+
     def int2hex(self, int):
         return '%x' % int
 
@@ -1402,6 +1403,7 @@ class ExtremeInfo(Poll, Converter, object):
                     return tunerinfo
             else:
                 return ''
+        return
 
     def getMgcamd(self):
         self.poll_interval = 2000

@@ -1,13 +1,16 @@
 import struct
 import os
 from fcntl import ioctl
-from sys import maxint
 from enigma import eTimer, eHdmiCEC, eActionMap
 from config import config, ConfigSelection, ConfigYesNo, ConfigSubsection, ConfigText
 from Components.Console import Console
 from Tools.Directories import fileExists
 from time import time
 import Screens.Standby
+
+# sys.maxint on 64bit (2**63-1) fails with OverflowError on eActionMap.bindAction use 32bit value (2**31-1)
+maxint = 2147483647
+
 
 config.hdmicec = ConfigSubsection()
 config.hdmicec.enabled = ConfigYesNo(default = False) # query from this value in hdmi_cec.cpp
